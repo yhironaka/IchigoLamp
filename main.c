@@ -101,7 +101,8 @@ int main(void)
   uart0puts("IchigoLamp Ver.");
   uart0puts(VERSION_NUM);
   uart0puts("\n\r");
-
+	
+/*
     for(i=64;i>=0;i--) {
       spiSend(0);
       spiSend(0);
@@ -116,7 +117,7 @@ int main(void)
       sendRGB(i,i,i);
       mrtDelay(5);
     }
-
+*/
   char readbuf[10];
   char c;
   int bufpos;
