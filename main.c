@@ -1,8 +1,49 @@
 /**************************************************************************/
 /*
-** IchigoLamp 
-** License: CC BY yhironaka@gmail.com
-** 2015/11/02
+IchigoLamp
+
+The MIT License (MIT)
+
+Copyright (c) 2015 Yasuhisa Hironaka
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+-----
+
+This program was modified by Yasuhisa Hironaka.
+Original code was written by Jean-Claude Wippler.
+https://github.com/jeelabs/embello/tree/master/explore/1450-dips/leds
+Here is the original copyright notice by Jean-Claude Wippler:
+
+-----
+
+Copyright © 2014 Jean-Claude Wippler
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
 */
 /**************************************************************************/
 
@@ -102,22 +143,6 @@ int main(void)
   uart0puts(VERSION_NUM);
   uart0puts("\n\r");
 	
-/*
-    for(i=64;i>=0;i--) {
-      spiSend(0);
-      spiSend(0);
-
-      sendRGB(i,i,i);
-      sendRGB(i,i,i);
-      sendRGB(i,i,i);
-      sendRGB(i,i,i);
-      sendRGB(i,i,i);
-      sendRGB(i,i,i);
-      sendRGB(i,i,i);
-      sendRGB(i,i,i);
-      mrtDelay(5);
-    }
-*/
   char readbuf[10];
   char c;
   int bufpos;
