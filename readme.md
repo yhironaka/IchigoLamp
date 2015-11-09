@@ -2,6 +2,9 @@ IchigoLamp
 ==========
 yhironaka@gmail.com 廣中靖久
 
+<img src="https://raw.githubusercontent.com/yhironaka/yhironaka.github.io/master/images/IchigoLamp.jpg" width="480px">  
+https://www.youtube.com/watch?v=XWhrrqIixSc
+
 IchigoJamにuartで接続し、マイコン入りシリアルLEDのWS2812/WS2812Bを任意の色で光らせます。
 
 ### PinList
