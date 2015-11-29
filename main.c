@@ -166,6 +166,17 @@ int main(void)
         if(bufpos >= 2) break;
         bufpos++;
       }
+      
+      //LLCLEAR
+      else if (startsWith("LLCLEAR ",readbuf)){
+			spiSend(0);
+			spiSend(0);
+			for (i = 0 ; i < MAX_LED_NUM ; i++) {
+				sendRGB(00,00,00);
+			}
+      }
+      //END LLCLEAR
+      
       else {
         uart0puts(readbuf);
         for(i = 0 ; i < 10 ; i++) readbuf[i] = 0;
