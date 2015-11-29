@@ -169,6 +169,8 @@ int main(void)
       
       //LLCLEAR
       else if (startsWith("LLCLEAR ",readbuf)){
+		if(bufpos >= 7) break;
+		bufpos++;
 			spiSend(0);
 			spiSend(0);
 			for (i = 0 ; i < MAX_LED_NUM ; i++) {
@@ -176,6 +178,54 @@ int main(void)
 			}
       }
       //END LLCLEAR
+      
+      //LLMONO
+      else if (startsWith("LLMONO ",readbuf)){
+ 		if(bufpos >= 6) break;
+		bufpos++;    
+    // デコード
+    bufpos = 0;
+    out_bufpos=0;
+    for(i = 0 ; i < 10 ; i++) readbuf[i]=0;
+    while(1)
+    {
+      if(!uart0test()) continue;
+
+      c = uart0read();
+      if(c == 0x0d || c == 0x0a) break;
+      if(c >='0' && c <='9') {
+        readbuf[bufpos] = c - '0';
+        bufpos++;
+      }
+      if(c >='A' && c <='F') {
+        readbuf[bufpos] = c - 'A' + 10;
+        bufpos++;
+      }
+      if(c >='a' && c <='f') {
+        readbuf[bufpos] = c - 'a' + 10;
+        bufpos++;
+      }
+      if(bufpos == 6) {
+        for(i = 0 ; i < 3 ; i++){
+          g_LED_Buf[out_bufpos + i] =  readbuf[i * 2] * 16;
+          g_LED_Buf[out_bufpos + i] += readbuf[i * 2 + 1];
+        }
+        out_bufpos += 3;
+        bufpos=0;
+        if (out_bufpos >= MAX_LED_NUM * 3) break;
+      }
+    }
+    spiSend(0);
+    spiSend(0);
+		for (i = 0 ; i < MAX_LED_NUM ; i++) {
+		sendRGB(g_LED_Buf[0] , g_LED_Buf[1] , g_LED_Buf[2]);
+    }		
+		
+		
+		
+		
+		}		
+	//ENDLLMONO 
       
       else {
         uart0puts(readbuf);
